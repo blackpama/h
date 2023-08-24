@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+      <!-- highlight.js library -->
+<!--   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/windows-10.min.css" integrity="sha512-MHq77y3maCJBc1Qp8YgCGVZ/f+st6FasSlt5iVAEkzDwfnKshFTrfFqXhWtNCFqS1zcGgl7Cur2uiIPcw4hHYA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/a11y-dark.min.css" integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/humanoid-dark.min.css" integrity="sha512-VpzmzXvIXjYfKE4xjvTjF41gt15bbXf3u0CDWXDm105TA7yphqLSVqAc+gnpJswiS068uRYqiXCC4MvCycjQhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/javascript.min.js"></script>
+
+
+  <script>
+    hljs.highlightAll();
+  </script>
+ 
+  
+  
+  <style>
+  
+
+  
+  .g{
+    border: 1px dashed darkturquoise;
+    display: block;
+  }
+  
+  
+  
+  
+ a{
+ color: red;
+ }
+  h2{
+   margin-top: 150px;
+   text-align: center;
+ }
+  
+  p{
+    width: 90vw;
+    margin: auto;
+  }
+    h2{
+      text-align: center;
+    }
+        /* Styles for the response container */
+    .response {
+      width: 90vw;
+      margin: auto;
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap; /* Prevent wrapping of boxes when scrolling horizontally */
+      box-shadow: 10px 10px 10px dimgray;
+
+      margin-bottom: 20px;
+   background: black;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      border-radius: 10px;
+      max-height: 40vh;
+      color: white;
+      padding-left: 14px;
+    }
+
+    .res {
+      width: 90vw;
+      margin: auto;
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap; /* Prevent wrapping of boxes when scrolling horizontally */
+      margin-bottom: 20px;
+   background: black;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      border-radius: 10px;
+     
+      color: white;
+      padding-left: 14px;
+    }
+
+    /* Styles for the copy button */
+    .copy-button {
+      position: sticky;
+      top: 10px;
+      right: 10px;
+      height: 25px;
+      padding: 4px 8px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+     
+    }
+    
+    
+    
+        .tr {
+      position: absolute;
+      top: 10px;
+     left: 10px;
+      height: 25px;
+      
+      border: 1px double burlywood;
+      border-radius: 4px;
+      background-color: #000000;
+      color: #fff;
+      
+     
+    }
+
+  </style>
+  
+  
+</head>
+<body>
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <div class="response">
+<pre>
+  
+  
+This is example of scrolling text inside box whith copy button 
+
+</pre>
+    
+    <button class="copy-button">Copy</button>
+  </div>
+
+  
+  <h2>Aisa 1 box banana hai to</h2>
+  
+  <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+      &lt;!--
+*************************************
+           box html start
+         
+*************************************
+--&gt;
+    
+    
+  &lt;div style=&quot;width: 90vw; margin: auto; position: relative; display: flex; flex-wrap: nowrap; margin-bottom: 20px; border: 2px solid gray; background: #f5f5f5; overflow-x: auto; border-radius: 10px; background: #000; max-height: 40vh;color: white;&quot;&gt;
+    
+      &lt;pre&gt;
+        &amp;lt;script&amp;gt;
+        // Your JavaScript code goes here
+        &amp;lt;/script&amp;gt;
+      &lt;/pre&gt;
+    &lt;/span&gt;
+    &lt;button class=&quot;copy-button&quot; style=&quot;position: sticky; top: 10px; right: 10px; height: 25px; padding: 4px 8px; border: none; border-radius: 4px; background-color: #007bff; color: #fff; cursor: pointer;&quot; onclick=&quot;copyResponseText(this)&quot;&gt;Copy&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;!--
+*************************************
+           box html end
+*************************************
+--&gt;
+
+&lt;!--
+*************************************
+      box js start
+*************************************
+--&gt;
+
+
+  &lt;script&gt;
+    function copyResponseText(button) {
+      const responseTextElement = button.previousElementSibling;
+      const textToCopy = responseTextElement.innerText;
+
+      const tempTextArea = document.createElement(&apos;textarea&apos;);
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+
+      tempTextArea.select();
+      document.execCommand(&apos;copy&apos;);
+
+      document.body.removeChild(tempTextArea);
+
+      button.innerText = &apos;Copied!&apos;;
+      setTimeout(() =&gt; {
+        button.innerText = &apos;Copy&apos;;
+      }, 2000);
+    }
+  &lt;/script&gt;
+  &lt;!--
+*************************************
+           box end
+*************************************
+--&gt;
+  
+</code>
+ </pre>
+  <button class="copy-button">Copy.    </button>
+</div>
+  
+  
+
+
+  
+  
+  
+  <h2>Box ke andr code likhna ho to</h2>
+  <p>Agr directly code paste kroge to o show nhi hoga .Code ko phle escape krna pdega uske bad paste krna hoga {
+  <a href="https://websemantics.uk/tools/escaping-html/">Is website se escape kr sakte</a>} is website se code automatically copy ho jata.........Ab copy code ko pre tag ke andr paste
+  </p>
+  
+  
+  
+  
+ <h2>Agr 1 se jda box chahiye to</h2>
+ 
+   <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+     &lt;div class=&quot;response&quot;&gt;
+ &lt;pre&gt;
+&lt;code style=&quot;background: black;&quot; class=&quot;language-javascript&quot;&gt;
+  Box html
+&lt;/code&gt;
+ &lt;/pre&gt;
+  &lt;button class=&quot;copy-button&quot;&gt;Copy.    &lt;/button&gt;
+&lt;/div&gt;
+  
+</code>
+ </pre>
+  <button class="copy-button">Copy.    </button>
+<button class="tr">Html</button>
+</div>
+  
+  
+    <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+&lt;style&gt;
+  .response {
+    width: 90vw;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of boxes when scrolling horizontally */
+    margin-bottom: 20px;
+    background: black;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    border-radius: 10px;
+    max-height: 40vh;
+    color: white;
+    padding-left: 14px;
+  }
+
+  /* Styles for the copy button */
+  .copy-button {
+    position: sticky;
+    top: 10px;
+    right: 10px;
+    height: 25px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+&lt;/style&gt;
+
+</code>
+ </pre>
+
+  <button class="copy-button">Copy.    </button>
+  <button class="tr">Css</button>
+
+</div>
+  
+  
+  
+    <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+        &lt;script&gt;
+    
+    function copyResponseText() {
+      const responseTextElement = this.previousElementSibling;
+      const textToCopy = responseTextElement.innerText;
+
+     
+      const tempTextArea = document.createElement(&apos;textarea&apos;);
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+
+    
+      tempTextArea.select();
+      document.execCommand(&apos;copy&apos;);
+
+      
+      document.body.removeChild(tempTextArea);
+
+   
+      this.innerText = &apos;Copied!&apos;;
+      setTimeout(() =&gt; {
+        this.innerText = &apos;Copy&apos;;
+      }, 2000);
+    }
+
+
+    const copyButtons = document.querySelectorAll(&apos;.copy-button&apos;);
+    copyButtons.forEach((button) =&gt; {
+      button.addEventListener(&apos;click&apos;, copyResponseText);
+    });
+  &lt;/script&gt;
+
+</code>
+ </pre>
+  <button class="copy-button">Copy.    </button>
+  <button class="tr">Javascript</button>
+
+</div>
+  
+  
+  <h2>Html Css aur Javascript ko kaise ak code me jode</h2>
+  
+  <p>Html code likhne ke bad body tag ke upr style tag me Css aur script tag me javascript add kr skte hai</p>
+  
+
+  <pre><code style="background: black;" class="language-javascript">
+  &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  
+<span class="g">  &lt;style&gt;
+    
+    css code yaha
+    
+  &lt;/style&gt;</span>
+  
+<span class="g"> &lt;script&gt;
+    
+    javascript code yaha 
+    
+  &lt;/script&gt;
+</span>
+&lt;/head&gt;
+
+<span class="g">&lt;body&gt;
+  html code yaha 
+&lt;/body&gt;</span>
+
+&lt;/html&gt;
+</code></pre>
+  
+  <h2>Agar colourful code chahiye</h2>
+  
+  <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+  &lt;pre&gt;&lt;code style="background: black;" class="language-javascript"&gt;
+  
+  your code here
+  
+  &lt;/code&gt;&lt;/pre&gt;
+</code>
+ </pre>
+  <button class="copy-button">Copy.    </button>
+</div>
+  
+  
+  
+    <div class="response">
+ <pre>
+<code style="background: black;" class="language-javascript">
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/javascript.min.js"&gt;&lt;/script&gt;
+
+
+  &lt;script&gt;
+    hljs.highlightAll();
+  &lt;/script&gt;
+ </code></pre>
+  <button class="copy-button">Copy.    </button>
+</div>
+  
+ <p>itna knne ke bad ab theme choose krna hai ki kaisa chaiye {<a href="https://highlightjs.org/static/demo/">Yaha se theme select kr sakte</a>}</p>
+ 
+ 
+<br>
+<p>Ab us theme ka naam <a href="https://cdnjs.com/libraries/highlight.js">is website  {select styling in asset type}</a>me search krke copy wale me second wale pr click krke code copy</p>
+
+
+<br>
+ 
+  
+ <p> Us code ko apne website me head  tag ke upr paste} </p>
+  
+  
+  <br>
+    <div class="response">
+ <pre><code style="background: black;" class="language-javascript">
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/humanoid-dark.min.css" integrity="sha512-VpzmzXvIXjYfKE4xjvTjF41gt15bbXf3u0CDWXDm105TA7yphqLSVqAc+gnpJswiS068uRYqiXCC4MvCycjQhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /&gt;
+</code></pre>
+  <button class="copy-button">Copy.    </button>
+</div>
+  
+  <br>
+  <br>
+  
+  
+  
+    <div class="res">
+    <pre><code style="background: black;" class="language-javascript">
+    &lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+
+    &lt;!-- highlight.js library --&gt;
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/windows-10.min.css&quot;
+      integrity=&quot;sha512-MHq77y3maCJBc1Qp8YgCGVZ/f+st6FasSlt5iVAEkzDwfnKshFTrfFqXhWtNCFqS1zcGgl7Cur2uiIPcw4hHYA==&quot;
+      crossorigin=&quot;anonymous&quot;
+      referrerpolicy=&quot;no-referrer&quot;
+    /&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/languages/javascript.min.js&quot;&gt;&lt;/script&gt;
+
+    &lt;script&gt;
+      hljs.highlightAll();
+    &lt;/script&gt;
+
+    &lt;style&gt;
+      /* Styles for the response container */
+      .response {
+        width: 90vw;
+        margin: auto;
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping of boxes when scrolling horizontally */
+        margin-bottom: 20px;
+        background: black;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        border-radius: 10px;
+        max-height: 40vh;
+        color: white;
+        padding-left: 14px;
+      }
+
+      /* Styles for the copy button */
+      .copy-button {
+        position: sticky;
+        top: 10px;
+        right: 10px;
+        height: 25px;
+        padding: 4px 8px;
+        border: none;
+        border-radius: 4px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class=&quot;response&quot;&gt;
+      &lt;pre&gt;&lt;code style=&quot;background: black;&quot; class=&quot;language-javascript&quot;&gt;
+        &amp;lt;!--
+*************************************
+         box start
+************************************
+--&amp;gt;
+ 
+&amp;lt;div style=&quot;width:90vw;margin:auto;display:flex;border:2px solid gray;overflow-x:auto;border-radius:10px;max-height:40vh;background: #272822;&quot;&amp;gt;
+  &amp;lt;span style=&quot;flex-grow:1;padding:10px;color: #F8F8F2;&quot;&amp;gt;
+  
+    &amp;lt;pre&amp;gt;&amp;lt;code class=&quot;language-javascript&quot;&amp;gt;
+      this is highlighted with the Monokai theme
+    &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+ 
+  &amp;lt;/span&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;script&amp;gt;
+  function copyResponseText(button) {
+    const responseTextElement = button.previousElementSibling;
+    const textToCopy = responseTextElement.innerText;
+
+    const tempTextArea = document.createElement(&apos;textarea&apos;);
+    tempTextArea.value = textToCopy;
+    document.body.appendChild(tempTextArea);
+
+    tempTextArea.select();
+    document.execCommand(&apos;copy&apos;);
+
+    document.body.removeChild(tempTextArea);
+
+    button.innerText = &apos;Copied!&apos;;
+    setTimeout(() =&gt; {
+      button.innerText = &apos;Copy&apos;;
+    }, 2000);
+  }
+&amp;lt;/script&amp;gt;
+
+&amp;lt;!--
+*************************************
+           box end
+*************************************
+--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+      &lt;button class=&quot;copy-button&quot; onclick=&quot;copyResponseText(this)&quot;&gt;Copy&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+      // Function to copy the text inside the response-text element when the copy button is clicked
+      function copyResponseText() {
+        const responseTextElement = this.previousElementSibling;
+        const textToCopy = responseTextElement.innerText;
+
+        // Create a temporary textarea element to hold the text to be copied
+        const tempTextArea = document.createElement(&apos;textarea&apos;);
+        tempTextArea.value = textToCopy;
+        document.body.appendChild(tempTextArea);
+
+        // Select and copy the text
+        tempTextArea.select();
+        document.execCommand(&apos;copy&apos;);
+
+        // Remove the temporary textarea
+        document.body.removeChild(tempTextArea);
+
+        // Provide some visual feedback to the user
+        this.innerText = &apos;Copied!&apos;;
+        setTimeout(() =&gt; {
+          this.innerText = &apos;Copy&apos;;
+        }, 2000);
+      }
+
+      // Attach the copyResponseText function to all copy buttons
+      const copyButtons = document.querySelectorAll(&apos;.copy-button&apos;);
+      copyButtons.forEach((button) =&gt; {
+        button.addEventListener(&apos;click&apos;, copyResponseText);
+      });
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+    <button class="copy-button" onclick="copyResponseText(this)">Copy</button>
+  </div>
+
+  
+  
+  
+  
+  
+        <script>
+    // Function to copy the text inside the response-text element when the copy button is clicked
+    function copyResponseText() {
+      const responseTextElement = this.previousElementSibling;
+      const textToCopy = responseTextElement.innerText;
+
+      // Create a temporary textarea element to hold the text to be copied
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = textToCopy;
+      document.body.appendChild(tempTextArea);
+
+      // Select and copy the text
+      tempTextArea.select();
+      document.execCommand('copy');
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback to the user
+      this.innerText = 'Copied!';
+      setTimeout(() => {
+        this.innerText = 'Copy';
+      }, 2000);
+    }
+
+    // Attach the copyResponseText function to all copy buttons
+    const copyButtons = document.querySelectorAll('.copy-button');
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', copyResponseText);
+    });
+  </script>
+
+</body>
+</html>

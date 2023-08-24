@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faster Syntax Highlighting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/base16/humanoid-dark.min.css" integrity="sha512-VpzmzXvIXjYfKE4xjvTjF41gt15bbXf3u0CDWXDm105TA7yphqLSVqAc+gnpJswiS068uRYqiXCC4MvCycjQhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <style>
+        .editor-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 80vw;
+            min-height: 130px; /* Changed to min-height */
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow: auto;
+            background: black;
+            color: white;
+            margin: auto;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        code {
+            white-space: pre;
+            overflow-wrap: normal;
+            word-break: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container" contenteditable="true" id="fakeTextarea1" spellcheck="false"></div>
+    <br>
+    <div class="editor-container" contenteditable="true" id="fakeTextarea2" spellcheck="false"></div>
+
+    <script>
+        const fakeTextarea1 = document.getElementById('fakeTextarea1');
+        const fakeTextarea2 = document.getElementById('fakeTextarea2');
+
+        // Highlight and format the code when the user finishes editing
+        fakeTextarea1.addEventListener('input', () => {
+            clearTimeout(formatTimeout1);
+            formatTimeout1 = setTimeout(() => formatAndHighlightCode(fakeTextarea1), 500); // Delay for 500ms after the last input
+        });
+
+        fakeTextarea2.addEventListener('input', () => {
+            clearTimeout(formatTimeout2);
+            formatTimeout2 = setTimeout(() => formatAndHighlightCode(fakeTextarea2), 500); // Delay for 500ms after the last input
+        });
+
+        let formatTimeout1;
+        let formatTimeout2;
+
+        function formatAndHighlightCode(textarea) {
+            const codeContent = textarea.innerText;
+            const formattedCode = formatSourceCode(codeContent);
+            textarea.innerHTML = `<code>${hljs.highlightAuto(formattedCode).value}</code>`;
+        }
+
+        function formatSourceCode(code) {
+            const tabSize = 2;
+            const lines = code.split('\n');
+            let formattedCode = '';
+            let indent = 0;
+
+            lines.forEach((line, index) => {
+                line = line.trim();
+
+                if (line.endsWith('}')) {
+                    indent -= tabSize;
+                }
+
+                formattedCode += ' '.repeat(indent) + line + '\n';
+
+                if (line.endsWith('{')) {
+                    indent += tabSize;
+                }
+            });
+
+            return formattedCode.trim();
+        }
+
+        // Call formatAndHighlightCode initially to apply formatting and syntax highlighting to any initial content in the textareas
+        formatAndHighlightCode(fakeTextarea1);
+        formatAndHighlightCode(fakeTextarea2);
+    </script>
+</body>
+</html>
