@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Link Converter</title>
+</head>
+<body>
+    <h1>Link Converter</h1>
+    <input type="text" id="replitLink" placeholder="Enter Repl.it link">
+    <button id="convertButton">Convert</button>
+    <div id="outputLink"></div>
+
+    <script>
+        document.getElementById("convertButton").addEventListener("click", function () {
+            var replitLink = document.getElementById("replitLink").value;
+            
+            var replitPattern = /https:\/\/replit\.com\/@(.+)\/(.+)#(.+)/;
+            var match = replitLink.match(replitPattern);
+
+            if (match) {
+                var placeholder = match[2];
+                var username = match[1];
+                var path = match[3];
+                
+                var alternateLink = `${placeholder}.${username}.repl.co/${path}`;
+                document.getElementById("outputLink").textContent = alternateLink;
+            } else {
+                document.getElementById("outputLink").textContent = "Invalid link format.";
+            }
+        });
+    </script>
+</body>
+</html>
