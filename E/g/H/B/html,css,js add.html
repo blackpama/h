@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Textarea with Fixed Width and Auto-Expanding Height</title>
+    <style>
+        textarea {
+            width: 300px; /* Set a fixed width */
+            height: auto;
+            
+            overflow-x: auto; /* Show horizontal scrollbar when necessary */
+            white-space: nowrap; /* Prevent line breaks */
+        }
+    </style>
+</head>
+<body>
+  
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  
+&lt;style&gt;
+   <textarea id="autoTextarea" placeholder="Enter text here" oninput="autoExpand(this)"></textarea>
+&lt;/style&gt;
+  
+&lt;/head&gt;
+&lt;body&gt;
+   <textarea id="autoTextarea" placeholder="Enter text here" oninput="autoExpand(this)"></textarea>
+&lt;script&gt;
+   <textarea id="autoTextarea" placeholder="Enter text here" oninput="autoExpand(this)"></textarea>
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre> 
+    <script>
+        function autoExpand(element) {
+            element.style.height = 'auto'; // Reset height to auto
+            element.style.height = (element.scrollHeight) + 'px'; // Set height to scrollHeight
+        }
+
+        // Trigger the autoExpand function initially
+        autoExpand(document.getElementById('autoTextarea'));
+    </script>
+</body>
+</html>
